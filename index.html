@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H-Note Creative Solutions | Professional Counseling</title>
+    <title>H-Note Creative Solutions | Strategy & Counseling</title>
     <style>
+        /* H-Note Master Aesthetic */
         body {
             background-color: #000;
             color: #D4AF37;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
-            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
         }
 
-        /* Hero Section with Portrait & Voice */
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -21,74 +23,145 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            border-bottom: 1px solid #D4AF37;
+            padding: 20px;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
         }
 
-        .hero-img {
-            width: 250px;
-            height: 250px;
+        .portrait-frame {
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             border: 2px solid #D4AF37;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            margin-bottom: 25px;
+            animation: subtlePulse 8s infinite ease-in-out;
+        }
+
+        .portrait-frame img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
         }
 
-        .services-grid {
+        h1 {
+            font-size: 3rem;
+            letter-spacing: 5px;
+            margin: 10px 0;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #fff;
+            max-width: 600px;
+            margin-bottom: 30px;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        /* Services Grid */
+        .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 60px 10%;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2px; /* Creates the thin gold line effect */
+            background-color: #D4AF37; 
+            border-top: 1px solid #D4AF37;
         }
 
-        .card {
-            border: 1px solid #D4AF37;
-            padding: 30px;
+        .service-card {
+            background-color: #000;
+            padding: 60px 40px;
             text-align: center;
-            transition: 0.3s;
+            transition: 0.4s;
         }
 
-        .card:hover { background: #111; }
+        .service-card:hover {
+            background-color: #0a0a0a;
+        }
 
-        .btn {
-            background: #D4AF37;
-            color: #000;
-            padding: 15px 40px;
+        .service-card h3 {
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 45px;
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
             text-decoration: none;
             font-weight: bold;
-            display: inline-block;
+            letter-spacing: 2px;
+            transition: 0.3s;
             margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #D4AF37;
+            color: #000;
+        }
+
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <img src="assets/randy hensley.jpg" alt="Randy Hensley" class="hero-img">
-        <h1>H-Note Creative Solutions</h1>
-        <p style="font-size: 1.2em; max-width: 600px;">Turning Creative Talent into Scalable Business Models.</p>
+        <div class="portrait-frame">
+            <img src="assets/randy hensley.jpg" alt="Randy Hensley">
+        </div>
+        <h1>H-Note</h1>
+        <p class="tagline">Turning Artistic Resonance into Strategic Architecture.</p>
         
         <audio autoplay>
             <source src="assets/rando H_note.mp3" type="audio/mpeg">
         </audio>
 
-        <a href="intro.html" class="btn">Explore the Method</a>
+        <a href="intro.html" class="cta-button">EXPLORE THE METHOD</a>
     </section>
 
-    <section class="services-grid">
-        <div class="card">
-            <h3>Strategic Counseling</h3>
-            <p>Professional guidance to align your vision with market reality.</p>
+    <section class="services">
+        <div class="service-card">
+            <h3>COUNSELING</h3>
+            <p>Alignment strategies for high-frequency creative entrepreneurs.</p>
         </div>
-        <div class="card">
-            <h3>Web Design</h3>
-            <p>Technical architecture built for the modern digital landscape.</p>
+        <div class="service-card">
+            <h3>WEB DESIGN</h3>
+            <p>Building the digital skeleton for your creative soul.</p>
         </div>
-        <div class="card">
-            <h3>Copywriting</h3>
-            <p>Strategic messaging that converts creative spark into commercial growth.</p>
+        <div class="service-card">
+            <h3>COPYWRITING</h3>
+            <p>The Bat Kol frequency applied to strategic market messaging.</p>
         </div>
     </section>
+
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '69e38ab264564e18b2f3a308' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production',
+              voice: {
+                url: "https://runtime-api.voiceflow.com"
+              }
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
 
 </body>
 </html>
+
