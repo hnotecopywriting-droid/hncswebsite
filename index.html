@@ -2,24 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>H-Note Creative Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H-Note Creative Solutions | Professional Counseling</title>
     <style>
-        body { background-color: #000; color: #D4AF37; font-family: sans-serif; }
-        header { padding: 50px; text-align: center; border-bottom: 2px solid #D4AF37; }
-        .services { display: flex; justify-content: space-around; padding: 20px; }
-        .portal { background: #111; padding: 40px; margin-top: 20px; border-radius: 10px; }
+        body {
+            background-color: #000;
+            color: #D4AF37;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Hero Section with Portrait & Voice */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-bottom: 1px solid #D4AF37;
+        }
+
+        .hero-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 2px solid #D4AF37;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 60px 10%;
+        }
+
+        .card {
+            border: 1px solid #D4AF37;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover { background: #111; }
+
+        .btn {
+            background: #D4AF37;
+            color: #000;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <header>
+
+    <section class="hero">
+        <img src="assets/randy hensley.jpg" alt="Randy Hensley" class="hero-img">
         <h1>H-Note Creative Solutions</h1>
-        <p>Master the Art. Build the Business. Scale the Vision.</p>
-        <button style="background:#D4AF37; color:#000; padding:10px;">Book Counseling</button>
-    </header>
-    <section class="services">
-        <div><h3>Counseling</h3></div>
-        <div><h3>Web Design</h3></div>
-        <div><h3>Copywriting</h3></div>
+        <p style="font-size: 1.2em; max-width: 600px;">Turning Creative Talent into Scalable Business Models.</p>
+        
+        <audio autoplay>
+            <source src="assets/rando H_note.mp3" type="audio/mpeg">
+        </audio>
+
+        <a href="intro.html" class="btn">Explore the Method</a>
     </section>
+
+    <section class="services-grid">
+        <div class="card">
+            <h3>Strategic Counseling</h3>
+            <p>Professional guidance to align your vision with market reality.</p>
+        </div>
+        <div class="card">
+            <h3>Web Design</h3>
+            <p>Technical architecture built for the modern digital landscape.</p>
+        </div>
+        <div class="card">
+            <h3>Copywriting</h3>
+            <p>Strategic messaging that converts creative spark into commercial growth.</p>
+        </div>
+    </section>
+
 </body>
 </html>
