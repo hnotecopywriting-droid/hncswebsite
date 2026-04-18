@@ -3,147 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H-Note Creative Solutions | Strategy & Counseling</title>
+    <title>H-Note | Creative Strategy & Counseling</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        /* H-Note Master Aesthetic */
-        body {
-            background-color: #000;
-            color: #D4AF37;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+        :root {
+            --gold: #D4AF37;
+            --black: #0a0a0a;
+            --white: #ffffff;
         }
 
-        /* Hero Section */
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Hero Section - The Stage */
         .hero {
-            height: 100vh;
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
-            background: radial-gradient(circle at center, #111 0%, #000 100%);
+            padding: 40px 20px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+        }
+
+        .portrait-container {
+            position: relative;
+            margin-bottom: 30px;
         }
 
         .portrait-frame {
-            width: 280px;
-            height: 280px;
+            width: 260px;
+            height: 260px;
             border-radius: 50%;
-            border: 2px solid #D4AF37;
-            overflow: hidden;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
-            margin-bottom: 25px;
-            animation: subtlePulse 8s infinite ease-in-out;
+            border: 1px solid var(--gold);
+            padding: 10px; /* Space between frame and image */
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.15);
         }
 
         .portrait-frame img {
             width: 100%;
             height: 100%;
+            border-radius: 50%;
             object-fit: cover;
+            filter: grayscale(20%); /* Makes it look more professional/moody */
         }
 
         h1 {
-            font-size: 3rem;
-            letter-spacing: 5px;
-            margin: 10px 0;
-            text-transform: uppercase;
-            font-weight: 300;
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            letter-spacing: 12px;
+            margin: 20px 0 10px 0;
+            font-weight: 400;
         }
 
         .tagline {
-            font-size: 1.2rem;
-            color: #fff;
-            max-width: 600px;
-            margin-bottom: 30px;
-            font-style: italic;
-            opacity: 0.9;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 40px;
         }
 
-        /* Services Grid */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2px; /* Creates the thin gold line effect */
-            background-color: #D4AF37; 
-            border-top: 1px solid #D4AF37;
+        /* Clean Service Navigation */
+        .service-nav {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 50px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 20px 0;
         }
 
-        .service-card {
-            background-color: #000;
-            padding: 60px 40px;
-            text-align: center;
-            transition: 0.4s;
-        }
-
-        .service-card:hover {
-            background-color: #0a0a0a;
-        }
-
-        .service-card h3 {
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 45px;
-            border: 1px solid #D4AF37;
-            color: #D4AF37;
+        .nav-item {
             text-decoration: none;
-            font-weight: bold;
+            color: var(--gold);
+            font-size: 0.9rem;
             letter-spacing: 2px;
+            font-weight: bold;
             transition: 0.3s;
+        }
+
+        .nav-item:hover {
+            color: var(--white);
+            text-shadow: 0 0 10px var(--gold);
+        }
+
+        .cta-box {
             margin-top: 20px;
         }
 
-        .cta-button:hover {
-            background-color: #D4AF37;
-            color: #000;
+        .btn-main {
+            background-color: var(--gold);
+            color: black;
+            padding: 15px 50px;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: transform 0.2s;
         }
 
-        @keyframes subtlePulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
+        .btn-main:hover {
+            transform: translateY(-3px);
+            background-color: #f1c40f;
         }
 
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
+        /* Footer Info */
+        footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; letter-spacing: 6px; }
+            .service-nav { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <div class="portrait-frame">
-            <img src="assets/randy hensley.jpg" alt="Randy Hensley">
+        <div class="portrait-container">
+            <div class="portrait-frame">
+                <img src="assets/randy hensley.jpg" alt="Randy Hensley">
+            </div>
         </div>
-        <h1>H-Note</h1>
-        <p class="tagline">Turning Artistic Resonance into Strategic Architecture.</p>
-        
+
+        <h1>H-NOTE</h1>
+        <div class="tagline">Strategy &bull; Counseling &bull; Architecture</div>
+
+        <div class="service-nav">
+            <a href="#counseling" class="nav-item">COUNSELING</a>
+            <a href="#web-design" class="nav-item">WEB DESIGN</a>
+            <a href="#copywriting" class="nav-item">COPYWRITING</a>
+        </div>
+
+        <div class="cta-box">
+            <a href="intro.html" class="btn-main">EXPLORE THE METHOD</a>
+        </div>
+
         <audio autoplay>
             <source src="assets/rando H_note.mp3" type="audio/mpeg">
         </audio>
-
-        <a href="intro.html" class="cta-button">EXPLORE THE METHOD</a>
     </section>
 
-    <section class="services">
-        <div class="service-card">
-            <h3>COUNSELING</h3>
-            <p>Alignment strategies for high-frequency creative entrepreneurs.</p>
-        </div>
-        <div class="service-card">
-            <h3>WEB DESIGN</h3>
-            <p>Building the digital skeleton for your creative soul.</p>
-        </div>
-        <div class="service-card">
-            <h3>COPYWRITING</h3>
-            <p>The Bat Kol frequency applied to strategic market messaging.</p>
-        </div>
-    </section>
+    <footer>
+        &copy; 2026 H-NOTE CREATIVE SOLUTIONS. ALL RIGHTS RESERVED.
+    </footer>
 
     <script type="text/javascript">
       (function(d, t) {
@@ -152,10 +171,7 @@
             window.voiceflow.chat.load({
               verify: { projectID: '69e38ab264564e18b2f3a308' },
               url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production',
-              voice: {
-                url: "https://runtime-api.voiceflow.com"
-              }
+              versionID: 'production'
             });
           }
           v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
@@ -164,4 +180,3 @@
 
 </body>
 </html>
-
