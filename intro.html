@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | H-Note Creative Solutions</title>
+    <style>
+        /* Professional Gold & Black Theme */
+        body {
+            background-color: #000000;
+            color: #D4AF37;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Cinematic Ken Burns Effect for your Portrait */
+        .portrait-container {
+            width: 300px;
+            height: 300px;
+            border: 3px solid #D4AF37;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            margin-bottom: 30px;
+        }
+
+        .portrait-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: panZoom 10s infinite alternate;
+        }
+
+        @keyframes panZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .welcome-text {
+            text-align: center;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        h1 { font-weight: 300; letter-spacing: 2px; }
+
+        .btn {
+            background-color: #D4AF37;
+            color: #000;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background-color: #f1c40f; }
+    </style>
+</head>
+<body>
+
+    <div class="portrait-container">
+        <img src="assets/randy hensley.jpg" alt="Randy Hensley">
+    </div>
+
+    <div class="welcome-text">
+        <h1>Welcome to the H-Note Method</h1>
+        <p>Listen as we prepare to integrate your talent into a scalable business model.</p>
+        
+        <audio id="welcome-audio" autoplay>
+            <source src="assets/rando H_note.mp3" type="audio/mpeg">
+        </audio>
+
+        <a href="index.html" class="btn">Proceed to Dashboard</a>
+    </div>
+
+</body>
+</html>
