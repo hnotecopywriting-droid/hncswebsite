@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H-NOTE | Strategy & Counseling</title>
+    <title>H-NOTE | Creative Strategy & Counseling</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,7 +11,6 @@
             --black: #050505;
             --white: #ffffff;
             --soft-gold: rgba(212, 175, 55, 0.4);
-            --p-shadow: rgba(0,0,0,0.8);
         }
 
         body, html {
@@ -28,25 +27,30 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
-            background: rgba(5, 5, 5, 0.9);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 15px 40px;
+            background: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         .logo-container img {
-            height: 60px; /* Scaled to fit comfortably in the header */
+            height: 70px;
             width: auto;
             display: block;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
         }
 
         nav a {
             color: var(--white);
             text-decoration: none;
-            margin-left: 35px;
-            font-size: 0.75rem;
+            margin-left: 25px;
+            font-size: 0.7rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: 0.3s;
@@ -55,112 +59,120 @@
 
         nav a:hover { color: var(--gold); opacity: 1; }
 
+        .btn-member {
+            border: 1px solid var(--gold);
+            padding: 8px 15px;
+            margin-left: 20px;
+            color: var(--gold) !important;
+        }
+
         /* --- MAIN LAYOUT --- */
         .master-container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 100px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
 
-        /* 1. THE POEM - (Placed first, before the portrait) */
         .poem-section {
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .poem-text {
             font-family: 'Cinzel', serif;
-            font-size: clamp(1.1rem, 4vw, 1.4rem);
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
             color: var(--gold);
             line-height: 2.2;
             letter-spacing: 2px;
             font-style: italic;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
         }
 
-        /* 2. THE PORTRAIT */
         .portrait-frame {
             position: relative;
             width: 340px;
             max-width: 90%;
             margin: 0 auto;
             cursor: pointer;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: 0.4s;
         }
 
         .portrait-frame img {
             width: 100%;
             display: block;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 20px 60px var(--p-shadow);
-        }
-
-        .portrait-frame:hover {
-            transform: scale(1.01);
-            box-shadow: 0 0 40px var(--soft-gold);
+            border: 1px solid var(--gold);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.9);
         }
 
         .audio-hint {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             letter-spacing: 4px;
             color: var(--gold);
-            margin-top: 15px;
+            margin: 15px 0 40px;
             text-transform: uppercase;
             opacity: 0.5;
-            margin-bottom: 50px;
         }
 
-        /* 3. SCHEDULING - (Under portrait) */
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: clamp(2rem, 8vw, 2.8rem);
+            font-size: 2.5rem;
             letter-spacing: 10px;
-            margin: 20px 0 10px;
             color: var(--white);
-        }
-
-        .tagline {
-            font-size: 0.85rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            opacity: 0.5;
-            margin-bottom: 50px;
+            margin-bottom: 10px;
         }
 
         .btn-schedule {
             display: inline-block;
-            padding: 22px 65px;
+            padding: 20px 50px;
             border: 1px solid var(--gold);
             color: var(--gold);
             text-decoration: none;
             font-weight: 600;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            transition: all 0.4s ease;
-            margin-bottom: 40px;
+            transition: 0.4s;
+            margin: 30px 0;
         }
 
-        .btn-schedule:hover {
-            background: var(--gold);
-            color: #000;
-            box-shadow: 0 0 30px var(--soft-gold);
-        }
+        .btn-schedule:hover { background: var(--gold); color: #000; }
 
-        /* --- 4. CONTACT FOOTER --- */
+        /* --- CONTACT FOOTER --- */
         footer {
-            padding: 80px 20px;
+            padding: 60px 20px;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
             background: #080808;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            color: rgba(255,255,255,0.4);
+            text-align: center;
         }
 
-        .correspondence { margin-bottom: 25px; line-height: 2; }
-        .correspondence a { color: var(--gold); text-decoration: none; font-weight: bold; }
-        .correspondence a:hover { text-shadow: 0 0 10px var(--gold); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 1px;
+            line-height: 1.8;
+        }
 
-        .copyright-tag { font-size: 0.7rem; opacity: 0.5; text-transform: uppercase; }
+        .contact-column h3 {
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-column a { color: var(--white); text-decoration: none; }
+        .contact-column a:hover { color: var(--gold); }
+
+        .copyright {
+            margin-top: 50px;
+            font-size: 0.6rem;
+            opacity: 0.3;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
 
         audio { display: none; }
     </style>
@@ -168,13 +180,14 @@
 <body>
 
     <header>
-       <div class="logo-container">
-    <img src="assets/Screenshot_24-10-2025_21598_looka.com.jpeg" alt="H-Note Creative Solutions logo">
-</div>
+        <div class="logo-container">
+            <img src="assets/Hnote Logo.jpeg" alt="H-Note Logo">
+        </div>
         <nav>
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
-            <a href="profile.html">Classroom</a>
+            <a href="request.html">Join</a>
+            <a href="profile.html">Log In</a>
+            <a href="https://www.skool.com/the-awakened-ones" target="_blank">Clubhouse</a>
+            <a href="request.html" class="btn-member">Schedule</a>
         </nav>
     </header>
 
@@ -192,24 +205,38 @@
             </div>
         </section>
 
-       <div class="portrait-frame" onmouseenter="playVoice()" onmouseleave="stopVoice()">
-    <img src="assets/randy hensley.jpg" alt="Randy Hensley">
-</div>
+        <div class="portrait-frame" onmouseenter="startVoice()" onmouseleave="stopVoice()">
+            <img src="assets/Teacher.jpg" alt="Randy Hensley">
+        </div>
         <div class="audio-hint">Engage for Resonance</div>
 
         <h1>INITIATE</h1>
-        <p class="tagline">Counseling & Strategy for Creative Leadership</p>
-        <a href="mailto:Randy@H-Note.com?subject=Requesting Assessment" class="btn-schedule">SCHEDULE AN ASSESSMENT</a>
+        <p style="letter-spacing: 4px; opacity: 0.5;">STRATEGY &bull; COUNSELING &bull; ARCHITECTURE</p>
+        
+        <a href="request.html" class="btn-schedule">REQUEST ASSESSMENT</a>
 
     </div>
 
     <footer>
-        <div class="correspondence">
-            <strong>H-NOTE CREATIVE SOLUTIONS</strong><br>
-            Direct Inquiry: <a href="mailto:Randy@H-Note.com">Randy@H-Note.com</a>
+        <div class="contact-grid">
+            <div class="contact-column">
+                <h3>Location</h3>
+                Randy Hensley CACDA<br>
+                Diamond Springs, CA 95619
+            </div>
+            <div class="contact-column">
+                <h3>Connect</h3>
+                Direct: (530) 919-1429<br>
+                <a href="mailto:hnotecopywriting@gmail.com">hnotecopywriting@gmail.com</a>
+            </div>
+            <div class="contact-column">
+                <h3>Direct</h3>
+                <a href="mailto:rlhensley2024@gmail.com">rlhensley2024@gmail.com</a><br>
+                H-Note Creative Solutions
+            </div>
         </div>
-        <div class="copyright-tag">
-            &copy; 2026 Alpha Level Vetted
+        <div class="copyright">
+            &copy; 2026 ALPHA LEVEL VETTED &bull; ALL RIGHTS RESERVED
         </div>
     </footer>
 
@@ -219,7 +246,7 @@
 
     <script>
         const voice = document.getElementById('hnoteVoice');
-        function playVoice() { voice.currentTime = 0; voice.play().catch(e => console.log("Hover interaction blocked until page click.")); }
+        function startVoice() { voice.currentTime = 0; voice.play().catch(e => {}); }
         function stopVoice() { voice.pause(); }
     </script>
 
