@@ -10,7 +10,7 @@
             --gold: #D4AF37;
             --black: #050505;
             --white: #ffffff;
-            --soft-gold: rgba(212, 175, 55, 0.4);
+            --soft-gold: rgba(212, 175, 55, 0.3);
         }
 
         body, html {
@@ -27,8 +27,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 40px;
-            background: rgba(5, 5, 5, 0.95);
+            padding: 10px 40px;
+            background: rgba(5, 5, 5, 0.98);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             position: sticky;
             top: 0;
@@ -36,21 +36,21 @@
         }
 
         .logo-container img {
-            height: 70px;
+            height: 80px;
             width: auto;
             display: block;
         }
 
-        nav {
+        .nav-links {
             display: flex;
             align-items: center;
+            gap: 15px;
         }
 
         nav a {
             color: var(--white);
             text-decoration: none;
-            margin-left: 25px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: 0.3s;
@@ -59,14 +59,26 @@
 
         nav a:hover { color: var(--gold); opacity: 1; }
 
-        .btn-member {
+        /* Tiered Access Buttons */
+        .btn-clubhouse {
             border: 1px solid var(--gold);
-            padding: 8px 15px;
-            margin-left: 20px;
+            padding: 8px 12px;
             color: var(--gold) !important;
         }
 
-        /* --- MAIN LAYOUT --- */
+        .btn-join {
+            background: var(--gold);
+            color: #000 !important;
+            padding: 8px 15px;
+            font-weight: 600;
+        }
+
+        .btn-student {
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 12px;
+        }
+
+        /* --- MAIN CONTENT --- */
         .master-container {
             max-width: 900px;
             margin: 0 auto;
@@ -74,22 +86,20 @@
             text-align: center;
         }
 
-        .poem-section {
-            margin-bottom: 50px;
-        }
-
         .poem-text {
             font-family: 'Cinzel', serif;
-            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            font-size: clamp(1rem, 4vw, 1.25rem);
             color: var(--gold);
             line-height: 2.2;
             letter-spacing: 2px;
             font-style: italic;
+            margin-bottom: 50px;
         }
 
+        /* THE PORTRAIT FRAME */
         .portrait-frame {
             position: relative;
-            width: 340px;
+            width: 350px;
             max-width: 90%;
             margin: 0 auto;
             cursor: pointer;
@@ -100,27 +110,19 @@
             width: 100%;
             display: block;
             border: 1px solid var(--gold);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.9);
+            box-shadow: 0 15px 50px rgba(0,0,0,1);
         }
 
         .audio-hint {
             font-size: 0.6rem;
             letter-spacing: 4px;
             color: var(--gold);
-            margin: 15px 0 40px;
+            margin: 20px 0 40px;
             text-transform: uppercase;
             opacity: 0.5;
         }
 
-        h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            letter-spacing: 10px;
-            color: var(--white);
-            margin-bottom: 10px;
-        }
-
-        .btn-schedule {
+        .btn-assessment {
             display: inline-block;
             padding: 20px 50px;
             border: 1px solid var(--gold);
@@ -130,48 +132,34 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             transition: 0.4s;
-            margin: 30px 0;
         }
 
-        .btn-schedule:hover { background: var(--gold); color: #000; }
+        .btn-assessment:hover { background: var(--gold); color: #000; }
 
         /* --- CONTACT FOOTER --- */
         footer {
-            padding: 60px 20px;
+            padding: 60px 40px;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
             background: #080808;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
             text-align: center;
         }
 
         .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
             gap: 30px;
             max-width: 1000px;
-            margin: 0 auto;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.6);
-            letter-spacing: 1px;
-            line-height: 1.8;
+            margin: 0 auto 40px;
         }
 
-        .contact-column h3 {
-            color: var(--gold);
-            font-family: 'Cinzel', serif;
-            letter-spacing: 3px;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .contact-column a { color: var(--white); text-decoration: none; }
-        .contact-column a:hover { color: var(--gold); }
-
-        .copyright {
-            margin-top: 50px;
-            font-size: 0.6rem;
-            opacity: 0.3;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+        .contact-item h4 { 
+            color: var(--gold); 
+            margin-bottom: 10px; 
+            font-family: 'Cinzel'; 
+            letter-spacing: 2px;
         }
 
         audio { display: none; }
@@ -183,61 +171,52 @@
         <div class="logo-container">
             <img src="assets/Hnote Logo.jpeg" alt="H-Note Logo">
         </div>
-        <nav>
-            <a href="request.html">Join</a>
-            <a href="profile.html">Log In</a>
-            <a href="https://www.skool.com/the-awakened-ones" target="_blank">Clubhouse</a>
-            <a href="request.html" class="btn-member">Schedule</a>
+        <nav class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#courses">Courses</a>
+            <a href="login-clubhouse.html" class="btn-clubhouse">Clubhouse Log In</a>
+            <a href="request.html" class="btn-join">Join Now</a>
+            <a href="login-student.html" class="btn-student">Student Log In</a>
         </nav>
     </header>
 
     <div class="master-container">
         
-        <section class="poem-section">
-            <div class="poem-text">
-                "I fear not, this wonderful thing,<br>
-                Which lightens my path so that I might see,<br>
-                Its beauty is its strength and its wisdom is clean<br>
-                But it's frightened by so many that its beauty goes unseen,<br>
-                So tonight I give thanks in hopes that it might<br>
-                Give warmth to my body and give sight to my eyes.<br>
-                What Am I? &nbsp; FIRE"
-            </div>
-        </section>
+        <div class="poem-text">
+            "I fear not, this wonderful thing,<br>
+            Which lightens my path so that I might see,<br>
+            Its beauty is its strength and its wisdom is clean<br>
+            But it's frightened by so many that its beauty goes unseen,<br>
+            So tonight I give thanks in hopes that it might<br>
+            Give warmth to my body and give sight to my eyes.<br>
+            What Am I? &nbsp; FIRE"
+        </div>
 
-        <div class="portrait-frame" onmouseenter="startVoice()" onmouseleave="stopVoice()">
-            <img src="assets/Teacher.jpg" alt="Randy Hensley">
+        <div class="portrait-frame" onmouseenter="playVoice()" onmouseleave="stopVoice()">
+            <img src="assets/Teacher.png" alt="Randy Hensley">
         </div>
         <div class="audio-hint">Engage for Resonance</div>
 
-        <h1>INITIATE</h1>
-        <p style="letter-spacing: 4px; opacity: 0.5;">STRATEGY &bull; COUNSELING &bull; ARCHITECTURE</p>
-        
-        <a href="request.html" class="btn-schedule">REQUEST ASSESSMENT</a>
+        <a href="request.html" class="btn-assessment">Schedule An Assessment</a>
 
     </div>
 
     <footer>
         <div class="contact-grid">
-            <div class="contact-column">
-                <h3>Location</h3>
-                Randy Hensley CACDA<br>
-                Diamond Springs, CA 95619
+            <div class="contact-item">
+                <h4>Location</h4>
+                Randy Hensley CACDA<br> Diamond Springs, CA 95619
             </div>
-            <div class="contact-column">
-                <h3>Connect</h3>
-                Direct: (530) 919-1429<br>
-                <a href="mailto:hnotecopywriting@gmail.com">hnotecopywriting@gmail.com</a>
+            <div class="contact-item">
+                <h4>Inquiry</h4>
+                (530) 919-1429<br> hnotecopywriting@gmail.com
             </div>
-            <div class="contact-column">
-                <h3>Direct</h3>
-                <a href="mailto:rlhensley2024@gmail.com">rlhensley2024@gmail.com</a><br>
-                H-Note Creative Solutions
+            <div class="contact-item">
+                <h4>Direct Correspondence</h4>
+                rlhensley2024@gmail.com
             </div>
         </div>
-        <div class="copyright">
-            &copy; 2026 ALPHA LEVEL VETTED &bull; ALL RIGHTS RESERVED
-        </div>
+        <div style="font-size: 0.6rem; letter-spacing: 2px; opacity: 0.3;">&copy; 2026 ALPHA LEVEL VETTED &bull; ARCHITECTURE BY RANDO</div>
     </footer>
 
     <audio id="hnoteVoice">
@@ -246,22 +225,8 @@
 
     <script>
         const voice = document.getElementById('hnoteVoice');
-        function startVoice() { voice.currentTime = 0; voice.play().catch(e => {}); }
+        function playVoice() { voice.currentTime = 0; voice.play().catch(e => {}); }
         function stopVoice() { voice.pause(); }
-    </script>
-
-    <script type="text/javascript">
-      (function(d, t) {
-          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-          v.onload = function() {
-            window.voiceflow.chat.load({
-              verify: { projectID: '69e38ab264564e18b2f3a308' },
-              url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production'
-            });
-          }
-          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-      })(document, 'script');
     </script>
 
 </body>
