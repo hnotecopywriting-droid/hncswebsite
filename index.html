@@ -3,164 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H-Note | Creative Strategy & Counseling</title>
+    <title>H-NOTE | Creative Strategy & Counseling</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #D4AF37;
             --black: #050505;
             --white: #ffffff;
+            --soft-gold: rgba(212, 175, 55, 0.4);
         }
 
         body, html {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
             background-color: var(--black);
-            font-family: 'Montserrat', sans-serif;
             color: var(--white);
-            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
         }
 
-        .hero {
-            position: relative;
-            height: 100vh;
-            width: 100%;
+        /* --- NAVIGATION HEADER --- */
+        header {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        /* Subtle Atmosphere Background */
-        .video-bg {
-            position: absolute;
+            padding: 20px 60px;
+            background: rgba(5, 5, 5, 0.9);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.1;
-            z-index: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
-        .content-layer {
-            z-index: 10;
-            padding: 20px;
-        }
-
-        /* Square Portrait Layout - Preserving your existing frame */
-        .portrait-container {
-            position: relative;
-            width: 300px; 
-            max-width: 80vw;
-            margin: 0 auto 25px;
-            cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .portrait-container img {
-            width: 100%;
-            display: block;
-            border: 1px solid rgba(212, 175, 55, 0.2); /* Soft highlight around your frame */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .portrait-container:hover {
-            transform: scale(1.03);
-        }
-
-        .audio-hint {
-            font-size: 0.6rem;
-            letter-spacing: 3px;
+        .logo-text {
+            font-family: 'Cinzel', serif;
             color: var(--gold);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            opacity: 0.5;
-            transition: 0.3s;
+            font-size: 1.8rem;
+            letter-spacing: 6px;
+            text-decoration: none;
+            font-weight: 700;
         }
 
-        .portrait-container:hover + .audio-hint {
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 35px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            opacity: 0.8;
+        }
+
+        nav a:hover {
+            color: var(--gold);
             opacity: 1;
         }
 
-        /* Typography */
+        /* --- MAIN LAYOUT --- */
+        .master-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        /* The Fire Poem Section */
+        .poem-box {
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .poem-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            line-height: 2.2;
+            letter-spacing: 2px;
+            font-style: italic;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Square Portrait Container */
+        .portrait-frame {
+            position: relative;
+            width: 320px;
+            max-width: 90%;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+
+        .portrait-frame img {
+            width: 100%;
+            display: block;
+            border: 1px solid var(--gold);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        }
+
+        .portrait-frame:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px var(--soft-gold);
+        }
+
+        .audio-hint {
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            color: var(--gold);
+            margin-top: 15px;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+
+        /* Section Headings */
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            color: var(--gold);
+            font-size: 3rem;
             letter-spacing: 12px;
-            margin: 10px 0 0 0;
-            text-transform: uppercase;
+            margin: 50px 0 10px;
+            color: var(--gold);
         }
 
-        .tagline {
-            font-size: 0.85rem;
+        .sub-tagline {
+            font-size: 0.9rem;
             letter-spacing: 5px;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.5);
-            margin: 15px 0 45px 0;
+            opacity: 0.6;
+            margin-bottom: 60px;
         }
 
-        .btn-assessment {
+        /* Call to Action */
+        .btn-initiate {
             display: inline-block;
-            padding: 16px 45px;
+            padding: 20px 60px;
             border: 1px solid var(--gold);
-            background: transparent;
             color: var(--gold);
             text-decoration: none;
             font-weight: 600;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             transition: 0.4s;
         }
 
-        .btn-assessment:hover {
-            background-color: var(--gold);
+        .btn-initiate:hover {
+            background: var(--gold);
             color: #000;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 30px var(--soft-gold);
         }
+
+        /* --- CONTACT FOOTER --- */
+        footer {
+            margin-top: 100px;
+            padding: 60px 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            background: #080808;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .contact-details { margin-bottom: 20px; }
+        .contact-details a { color: var(--gold); text-decoration: none; }
 
         audio { display: none; }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <video autoplay muted loop class="video-bg">
-            <source src="assets/the big message.mp4" type="video/mp4">
-        </video>
+    <header>
+        <a href="index.html" class="logo-text">H-NOTE</a>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="request.html">Sign Up</a>
+            <a href="profile.html">Classroom</a>
+        </nav>
+    </header>
 
-        <div class="content-layer">
-            <div class="portrait-container" id="portrait" onmouseenter="playVoice()" onmouseleave="stopVoice()">
-                <img src="assets/randy hensley.jpg" alt="Randy Hensley">
+    <div class="master-container">
+        
+        <section class="poem-box">
+            <div class="poem-text">
+                "I fear not, this wonderful thing,<br>
+                Which lightens my path so that I might see,<br>
+                Its beauty is its strength and its wisdom is clean<br>
+                But it's frightened by so many that its beauty goes unseen,<br>
+                So tonight I give thanks in hopes that it might<br>
+                Give warmth to my body and give sight to my eyes.<br>
+                What Am I? I am FIRE."
             </div>
+        </section>
+
+        <div class="portrait-frame" onmouseenter="startVoice()" onmouseleave="stopVoice()">
+            <img src="assets/randy hensley.jpg" alt="Randy Hensley">
             <div class="audio-hint">Engage for Resonance</div>
-
-            <h1>H-NOTE</h1>
-            <div class="tagline">Strategy &bull; Counseling &bull; Architecture</div>
-
-            <a href="request.html" class="btn-assessment">Request Assessment</a>
         </div>
 
-        <audio id="randyVoice">
-            <source src="assets/rando H_note.mp3" type="audio/mpeg">
-        </audio>
-    </section>
+        <h1>THE ARCHITECT</h1>
+        <p class="sub-tagline">Strategy &bull; Counseling &bull; Architecture</p>
+
+        <a href="request.html" class="btn-initiate">Request Assessment</a>
+
+    </div>
+
+    <footer>
+        <div class="contact-details">
+            H-NOTE CREATIVE SOLUTIONS<br>
+            <a href="mailto:Randy@H-Note.com">Direct Correspondence</a>
+        </div>
+        &copy; 2026 ALPHA LEVEL INITIATED
+    </footer>
+
+    <audio id="hnoteVoice">
+        <source src="assets/rando H_note.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
-        const randyAudio = document.getElementById('randyVoice');
-        
-        function playVoice() {
-            randyAudio.currentTime = 0; // Starts from beginning each time they hover
-            randyAudio.play().catch(e => console.log("Interaction required"));
+        const voice = document.getElementById('hnoteVoice');
+        function startVoice() { 
+            voice.currentTime = 0; 
+            voice.play().catch(e => console.log("Hover interaction pending click")); 
         }
-
-        function stopVoice() {
-            randyAudio.pause();
-        }
+        function stopVoice() { voice.pause(); }
     </script>
 
     <script type="text/javascript">
