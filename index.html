@@ -4,165 +4,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H-Note | Creative Strategy & Counseling</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #D4AF37;
-            --black: #0a0a0a;
+            --black: #050505;
             --white: #ffffff;
         }
 
-        body {
-            background-color: var(--black);
-            color: var(--white);
-            font-family: 'Inter', sans-serif;
+        body, html {
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--black);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--white);
+            overflow: hidden;
         }
 
-        /* Hero Section - The Stage */
         .hero {
-            flex: 1;
+            position: relative;
+            height: 100vh;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 40px 20px;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
         }
 
-        .portrait-container {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .portrait-frame {
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            border: 1px solid var(--gold);
-            padding: 10px; /* Space between frame and image */
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.15);
-        }
-
-        .portrait-frame img {
+        /* Subtle Video Background */
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 50%;
             object-fit: cover;
-            filter: grayscale(20%); /* Makes it look more professional/moody */
+            opacity: 0.12;
+            z-index: 0;
         }
 
+        .content-layer {
+            z-index: 10;
+            padding: 20px;
+        }
+
+        /* Square Container matching your frame */
+        .portrait-container {
+            position: relative;
+            width: 320px; /* Adjust based on your image size */
+            height: auto;
+            margin: 0 auto 30px;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.3); /* Subtle outer border */
+            padding: 5px;
+        }
+
+        .portrait-container img {
+            width: 100%;
+            display: block;
+            filter: grayscale(10%);
+            transition: filter 0.4s ease;
+        }
+
+        /* Interaction Effect */
+        .portrait-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .portrait-container:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Typography */
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             color: var(--gold);
-            letter-spacing: 12px;
-            margin: 20px 0 10px 0;
-            font-weight: 400;
+            letter-spacing: 15px;
+            margin: 0;
+            text-transform: uppercase;
         }
 
         .tagline {
-            font-size: 1.1rem;
-            letter-spacing: 4px;
+            font-size: 0.9rem;
+            letter-spacing: 6px;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 40px;
+            margin: 15px 0 40px 0;
         }
 
-        /* Clean Service Navigation */
-        .service-nav {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 50px;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 20px 0;
-        }
-
-        .nav-item {
-            text-decoration: none;
+        .btn-assessment {
+            display: inline-block;
+            padding: 18px 50px;
+            border: 1px solid var(--gold);
+            background: transparent;
             color: var(--gold);
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .nav-item:hover {
-            color: var(--white);
-            text-shadow: 0 0 10px var(--gold);
-        }
-
-        .cta-box {
-            margin-top: 20px;
-        }
-
-        .btn-main {
-            background-color: var(--gold);
-            color: black;
-            padding: 15px 50px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: 0.4s;
+        }
+
+        .btn-assessment:hover {
+            background-color: var(--gold);
+            color: #000;
+        }
+
+        /* Hint for the user */
+        .audio-hint {
+            font-size: 0.6rem;
             letter-spacing: 2px;
-            border-radius: 2px;
-            transition: transform 0.2s;
-        }
-
-        .btn-main:hover {
-            transform: translateY(-3px);
-            background-color: #f1c40f;
-        }
-
-        /* Footer Info */
-        footer {
-            padding: 20px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.3);
-            letter-spacing: 2px;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; letter-spacing: 6px; }
-            .service-nav { flex-direction: column; gap: 15px; }
+            color: var(--gold);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            opacity: 0.6;
         }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <div class="portrait-container">
-            <div class="portrait-frame">
+        <video autoplay muted loop class="video-bg">
+            <source src="assets/the big message.mp4" type="video/mp4">
+        </video>
+
+        <div class="content-layer">
+            <div class="audio-hint">Hover to activate resonance</div>
+            
+            <div class="portrait-container" id="portrait" onmouseenter="playAudio()" onmouseleave="pauseAudio()">
                 <img src="assets/randy hensley.jpg" alt="Randy Hensley">
             </div>
+
+            <h1>H-NOTE</h1>
+            <div class="tagline">Strategy &bull; Counseling &bull; Architecture</div>
+
+            <a href="request.html" class="btn-assessment">Request Assessment</a>
         </div>
 
-        <h1>H-NOTE</h1>
-        <div class="tagline">Strategy &bull; Counseling &bull; Architecture</div>
-
-        <div class="service-nav">
-            <a href="#counseling" class="nav-item">COUNSELING</a>
-            <a href="#web-design" class="nav-item">WEB DESIGN</a>
-            <a href="#copywriting" class="nav-item">COPYWRITING</a>
-        </div>
-
-        <div class="cta-box">
-            <a href="intro.html" class="btn-main">EXPLORE THE METHOD</a>
-        </div>
-
-        <audio autoplay>
-            <source src="assets/rando H_note.mp3" type="audio/mpeg">
+        <audio id="hnoteAudio">
+            <source src="assets/Dottie Randy.mp3" type="audio/mpeg">
         </audio>
     </section>
 
-    <footer>
-        &copy; 2026 H-NOTE CREATIVE SOLUTIONS. ALL RIGHTS RESERVED.
-    </footer>
+    <script>
+        const audio = document.getElementById('hnoteAudio');
+        
+        function playAudio() {
+            audio.play().catch(e => console.log("Audio needs user interaction first"));
+        }
+
+        function pauseAudio() {
+            audio.pause();
+            // Optional: reset to start when they move mouse away
+            // audio.currentTime = 0; 
+        }
+    </script>
 
     <script type="text/javascript">
       (function(d, t) {
