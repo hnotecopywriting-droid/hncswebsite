@@ -59,24 +59,9 @@
 
         nav a:hover { color: var(--gold); opacity: 1; }
 
-        /* Tiered Access Buttons */
-        .btn-clubhouse {
-            border: 1px solid var(--gold);
-            padding: 8px 12px;
-            color: var(--gold) !important;
-        }
-
-        .btn-join {
-            background: var(--gold);
-            color: #000 !important;
-            padding: 8px 15px;
-            font-weight: 600;
-        }
-
-        .btn-student {
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 8px 12px;
-        }
+        .btn-clubhouse { border: 1px solid var(--gold); padding: 8px 12px; color: var(--gold) !important; }
+        .btn-join { background: var(--gold); color: #000 !important; padding: 8px 15px; font-weight: 600; }
+        .btn-student { border: 1px solid rgba(255,255,255,0.3); padding: 8px 12px; }
 
         /* --- MAIN CONTENT --- */
         .master-container {
@@ -96,7 +81,6 @@
             margin-bottom: 50px;
         }
 
-        /* THE PORTRAIT FRAME */
         .portrait-frame {
             position: relative;
             width: 350px;
@@ -136,7 +120,7 @@
 
         .btn-assessment:hover { background: var(--gold); color: #000; }
 
-        /* --- CONTACT FOOTER --- */
+        /* --- FOOTER --- */
         footer {
             padding: 60px 40px;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
@@ -155,12 +139,7 @@
             margin: 0 auto 40px;
         }
 
-        .contact-item h4 { 
-            color: var(--gold); 
-            margin-bottom: 10px; 
-            font-family: 'Cinzel'; 
-            letter-spacing: 2px;
-        }
+        .contact-item h4 { color: var(--gold); margin-bottom: 10px; font-family: 'Cinzel'; letter-spacing: 2px; }
 
         audio { display: none; }
     </style>
@@ -172,8 +151,8 @@
             <img src="assets/Hnote Logo.jpeg" alt="H-Note Logo">
         </div>
         <nav class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#courses">Courses</a>
+            <a href="services.html">Services</a>
+            <a href="courses.html">Courses</a>
             <a href="login-clubhouse.html" class="btn-clubhouse">Clubhouse Log In</a>
             <a href="request.html" class="btn-join">Join Now</a>
             <a href="login-student.html" class="btn-student">Student Log In</a>
@@ -192,8 +171,8 @@
             What Am I? &nbsp; FIRE"
         </div>
 
-        <div class="portrait-frame" onmouseenter="playVoice()" onmouseleave="stopVoice()">
-            <img src="assets/Teacher.png" alt="Randy Hensley">
+        <div class="portrait-frame" onmouseenter="startVoice()" onmouseleave="stopVoice()">
+            <img src="assets/Teacher.jpg" alt="Randy Hensley">
         </div>
         <div class="audio-hint">Engage for Resonance</div>
 
@@ -216,7 +195,7 @@
                 rlhensley2024@gmail.com
             </div>
         </div>
-        <div style="font-size: 0.6rem; letter-spacing: 2px; opacity: 0.3;">&copy; 2026 ALPHA LEVEL VETTED &bull; ARCHITECTURE BY RANDO</div>
+        <div style="font-size: 0.6rem; letter-spacing: 2px; opacity: 0.3;">&copy; 2026 ALPHA LEVEL VETTED</div>
     </footer>
 
     <audio id="hnoteVoice">
@@ -224,9 +203,9 @@
     </audio>
 
     <script>
-        const voice = document.getElementById('hnoteVoice');
-        function playVoice() { voice.currentTime = 0; voice.play().catch(e => {}); }
-        function stopVoice() { voice.pause(); }
+        const v = document.getElementById('hnoteVoice');
+        function startVoice() { v.currentTime = 0; v.play().catch(e => {}); }
+        function stopVoice() { v.pause(); }
     </script>
 
 </body>
