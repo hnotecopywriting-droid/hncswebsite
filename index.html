@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H-NOTE | Creative Strategy & Counseling</title>
+    <title>H-NOTE | Strategy & Counseling</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,6 +11,7 @@
             --black: #050505;
             --white: #ffffff;
             --soft-gold: rgba(212, 175, 55, 0.4);
+            --p-shadow: rgba(0,0,0,0.8);
         }
 
         body, html {
@@ -20,7 +21,6 @@
             color: var(--white);
             font-family: 'Montserrat', sans-serif;
             scroll-behavior: smooth;
-            min-height: 100vh;
         }
 
         /* --- NAVIGATION HEADER --- */
@@ -28,21 +28,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 60px;
-            background: var(--black);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 20px 50px;
+            background: rgba(5, 5, 5, 0.9);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .logo-text {
-            font-family: 'Cinzel', serif;
-            color: var(--gold);
-            font-size: 1.8rem;
-            letter-spacing: 6px;
-            text-decoration: none;
-            font-weight: 700;
+        .logo-container img {
+            height: 60px; /* Scaled to fit comfortably in the header */
+            width: auto;
+            display: block;
         }
 
         nav a {
@@ -62,44 +59,44 @@
         .master-container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
         }
 
-        /* The Fire Poem Section */
-        .poem-box {
-            margin-bottom: 70px;
+        /* 1. THE POEM - (Placed first, before the portrait) */
+        .poem-section {
+            margin-bottom: 60px;
         }
 
         .poem-text {
             font-family: 'Cinzel', serif;
-            font-size: clamp(1rem, 4vw, 1.35rem);
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
             color: var(--gold);
             line-height: 2.2;
             letter-spacing: 2px;
             font-style: italic;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
         }
 
-        /* Square Portrait Container */
+        /* 2. THE PORTRAIT */
         .portrait-frame {
             position: relative;
             width: 340px;
             max-width: 90%;
             margin: 0 auto;
             cursor: pointer;
-            transition: transform 0.4s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
         .portrait-frame img {
             width: 100%;
             display: block;
-            border: 1px solid var(--gold);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 60px var(--p-shadow);
         }
 
         .portrait-frame:hover {
-            transform: scale(1.02);
+            transform: scale(1.01);
             box-shadow: 0 0 40px var(--soft-gold);
         }
 
@@ -110,28 +107,27 @@
             margin-top: 15px;
             text-transform: uppercase;
             opacity: 0.5;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
-        /* Section Headings */
+        /* 3. SCHEDULING - (Under portrait) */
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: clamp(2rem, 8vw, 3rem);
-            letter-spacing: 12px;
+            font-size: clamp(2rem, 8vw, 2.8rem);
+            letter-spacing: 10px;
             margin: 20px 0 10px;
-            color: var(--gold);
+            color: var(--white);
         }
 
-        .sub-tagline {
+        .tagline {
             font-size: 0.85rem;
             letter-spacing: 5px;
             text-transform: uppercase;
             opacity: 0.5;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
-        /* Call to Action */
-        .btn-initiate {
+        .btn-schedule {
             display: inline-block;
             padding: 22px 65px;
             border: 1px solid var(--gold);
@@ -140,17 +136,17 @@
             font-weight: 600;
             letter-spacing: 4px;
             text-transform: uppercase;
-            transition: 0.4s;
+            transition: all 0.4s ease;
             margin-bottom: 40px;
         }
 
-        .btn-initiate:hover {
+        .btn-schedule:hover {
             background: var(--gold);
             color: #000;
             box-shadow: 0 0 30px var(--soft-gold);
         }
 
-        /* --- CONTACT FOOTER --- */
+        /* --- 4. CONTACT FOOTER --- */
         footer {
             padding: 80px 20px;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
@@ -160,33 +156,31 @@
             color: rgba(255,255,255,0.4);
         }
 
-        .contact-details { margin-bottom: 20px; line-height: 2;}
-        .contact-details a { color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s;}
-        .contact-details a:hover { border-bottom: 1px solid var(--gold); }
+        .correspondence { margin-bottom: 25px; line-height: 2; }
+        .correspondence a { color: var(--gold); text-decoration: none; font-weight: bold; }
+        .correspondence a:hover { text-shadow: 0 0 10px var(--gold); }
+
+        .copyright-tag { font-size: 0.7rem; opacity: 0.5; text-transform: uppercase; }
 
         audio { display: none; }
-
-        /* Responsive spacing */
-        @media (max-width: 600px) {
-            header { padding: 20px 30px; }
-            .master-container { padding: 40px 20px; }
-        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo-text">H-NOTE</a>
+        <div class="logo-container">
+            <img src="assets/HNote Gold Logo.png" alt="H-Note Creative Solutions logo">
+        </div>
         <nav>
             <a href="#services">Services</a>
-            <a href="request.html">Sign Up</a>
+            <a href="#about">About</a>
             <a href="profile.html">Classroom</a>
         </nav>
     </header>
 
     <div class="master-container">
         
-        <section class="poem-box">
+        <section class="poem-section">
             <div class="poem-text">
                 "I fear not, this wonderful thing,<br>
                 Which lightens my path so that I might see,<br>
@@ -198,24 +192,25 @@
             </div>
         </section>
 
-        <div class="portrait-frame" onmouseenter="startVoice()" onmouseleave="stopVoice()">
+        <div class="portrait-frame" onmouseenter="playVoice()" onmouseleave="stopVoice()">
             <img src="assets/randy hensley.jpg" alt="Randy Hensley">
         </div>
         <div class="audio-hint">Engage for Resonance</div>
 
-        <h1>THE ARCHITECT</h1>
-        <p class="sub-tagline">Strategy &bull; Counseling &bull; Architecture</p>
-
-        <a href="request.html" class="btn-initiate">Request Assessment</a>
+        <h1>INITIATE</h1>
+        <p class="tagline">Counseling & Strategy for Creative Leadership</p>
+        <a href="mailto:Randy@H-Note.com?subject=Requesting Assessment" class="btn-schedule">SCHEDULE AN ASSESSMENT</a>
 
     </div>
 
     <footer>
-        <div class="contact-details">
+        <div class="correspondence">
             <strong>H-NOTE CREATIVE SOLUTIONS</strong><br>
-            Correspondence: <a href="mailto:Randy@H-Note.com">Randy@H-Note.com</a>
+            Direct Inquiry: <a href="mailto:Randy@H-Note.com">Randy@H-Note.com</a>
         </div>
-        &copy; 2026 ALPHA LEVEL INITIATED
+        <div class="copyright-tag">
+            &copy; 2026 Alpha Level Vetted
+        </div>
     </footer>
 
     <audio id="hnoteVoice">
@@ -224,10 +219,7 @@
 
     <script>
         const voice = document.getElementById('hnoteVoice');
-        function startVoice() { 
-            voice.currentTime = 0; 
-            voice.play().catch(e => console.log("User must click page once before hover-audio works.")); 
-        }
+        function playVoice() { voice.currentTime = 0; voice.play().catch(e => console.log("Hover interaction blocked until page click.")); }
         function stopVoice() { voice.pause(); }
     </script>
 
