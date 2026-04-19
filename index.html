@@ -20,6 +20,7 @@
             color: var(--white);
             font-family: 'Montserrat', sans-serif;
             scroll-behavior: smooth;
+            min-height: 100vh;
         }
 
         /* --- NAVIGATION HEADER --- */
@@ -27,13 +28,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 60px;
-            background: rgba(5, 5, 5, 0.9);
+            padding: 25px 60px;
+            background: var(--black);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
         }
 
         .logo-text {
@@ -56,39 +56,35 @@
             opacity: 0.8;
         }
 
-        nav a:hover {
-            color: var(--gold);
-            opacity: 1;
-        }
+        nav a:hover { color: var(--gold); opacity: 1; }
 
         /* --- MAIN LAYOUT --- */
         .master-container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 100px 20px;
+            padding: 80px 20px;
             text-align: center;
         }
 
         /* The Fire Poem Section */
         .poem-box {
-            margin-bottom: 80px;
-            position: relative;
+            margin-bottom: 70px;
         }
 
         .poem-text {
             font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 4vw, 1.35rem);
             color: var(--gold);
             line-height: 2.2;
             letter-spacing: 2px;
             font-style: italic;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
         }
 
         /* Square Portrait Container */
         .portrait-frame {
             position: relative;
-            width: 320px;
+            width: 340px;
             max-width: 90%;
             margin: 0 auto;
             cursor: pointer;
@@ -99,7 +95,7 @@
             width: 100%;
             display: block;
             border: 1px solid var(--gold);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
         }
 
         .portrait-frame:hover {
@@ -114,29 +110,30 @@
             margin-top: 15px;
             text-transform: uppercase;
             opacity: 0.5;
+            margin-bottom: 40px;
         }
 
         /* Section Headings */
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: 3rem;
+            font-size: clamp(2rem, 8vw, 3rem);
             letter-spacing: 12px;
-            margin: 50px 0 10px;
+            margin: 20px 0 10px;
             color: var(--gold);
         }
 
         .sub-tagline {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 5px;
             text-transform: uppercase;
-            opacity: 0.6;
+            opacity: 0.5;
             margin-bottom: 60px;
         }
 
         /* Call to Action */
         .btn-initiate {
             display: inline-block;
-            padding: 20px 60px;
+            padding: 22px 65px;
             border: 1px solid var(--gold);
             color: var(--gold);
             text-decoration: none;
@@ -144,6 +141,7 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             transition: 0.4s;
+            margin-bottom: 40px;
         }
 
         .btn-initiate:hover {
@@ -154,8 +152,7 @@
 
         /* --- CONTACT FOOTER --- */
         footer {
-            margin-top: 100px;
-            padding: 60px 20px;
+            padding: 80px 20px;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
             background: #080808;
             font-size: 0.8rem;
@@ -163,10 +160,17 @@
             color: rgba(255,255,255,0.4);
         }
 
-        .contact-details { margin-bottom: 20px; }
-        .contact-details a { color: var(--gold); text-decoration: none; }
+        .contact-details { margin-bottom: 20px; line-height: 2;}
+        .contact-details a { color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s;}
+        .contact-details a:hover { border-bottom: 1px solid var(--gold); }
 
         audio { display: none; }
+
+        /* Responsive spacing */
+        @media (max-width: 600px) {
+            header { padding: 20px 30px; }
+            .master-container { padding: 40px 20px; }
+        }
     </style>
 </head>
 <body>
@@ -190,14 +194,14 @@
                 But it's frightened by so many that its beauty goes unseen,<br>
                 So tonight I give thanks in hopes that it might<br>
                 Give warmth to my body and give sight to my eyes.<br>
-                What Am I? I am FIRE."
+                What Am I? &nbsp; FIRE"
             </div>
         </section>
 
         <div class="portrait-frame" onmouseenter="startVoice()" onmouseleave="stopVoice()">
             <img src="assets/randy hensley.jpg" alt="Randy Hensley">
-            <div class="audio-hint">Engage for Resonance</div>
         </div>
+        <div class="audio-hint">Engage for Resonance</div>
 
         <h1>THE ARCHITECT</h1>
         <p class="sub-tagline">Strategy &bull; Counseling &bull; Architecture</p>
@@ -208,8 +212,8 @@
 
     <footer>
         <div class="contact-details">
-            H-NOTE CREATIVE SOLUTIONS<br>
-            <a href="mailto:Randy@H-Note.com">Direct Correspondence</a>
+            <strong>H-NOTE CREATIVE SOLUTIONS</strong><br>
+            Correspondence: <a href="mailto:Randy@H-Note.com">Randy@H-Note.com</a>
         </div>
         &copy; 2026 ALPHA LEVEL INITIATED
     </footer>
@@ -222,7 +226,7 @@
         const voice = document.getElementById('hnoteVoice');
         function startVoice() { 
             voice.currentTime = 0; 
-            voice.play().catch(e => console.log("Hover interaction pending click")); 
+            voice.play().catch(e => console.log("User must click page once before hover-audio works.")); 
         }
         function stopVoice() { voice.pause(); }
     </script>
