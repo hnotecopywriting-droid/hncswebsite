@@ -34,7 +34,7 @@
             text-align: center;
         }
 
-        /* Subtle Video Background */
+        /* Subtle Atmosphere Background */
         .video-bg {
             position: absolute;
             top: 0;
@@ -42,7 +42,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.12;
+            opacity: 0.1;
             z-index: 0;
         }
 
@@ -51,56 +51,62 @@
             padding: 20px;
         }
 
-        /* Square Container matching your frame */
+        /* Square Portrait Layout - Preserving your existing frame */
         .portrait-container {
             position: relative;
-            width: 320px; /* Adjust based on your image size */
-            height: auto;
-            margin: 0 auto 30px;
+            width: 300px; 
+            max-width: 80vw;
+            margin: 0 auto 25px;
             cursor: pointer;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 1px solid rgba(212, 175, 55, 0.3); /* Subtle outer border */
-            padding: 5px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .portrait-container img {
             width: 100%;
             display: block;
-            filter: grayscale(10%);
-            transition: filter 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2); /* Soft highlight around your frame */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Interaction Effect */
         .portrait-container:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+            transform: scale(1.03);
         }
 
-        .portrait-container:hover img {
-            filter: grayscale(0%);
+        .audio-hint {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+
+        .portrait-container:hover + .audio-hint {
+            opacity: 1;
         }
 
         /* Typography */
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2.5rem, 8vw, 4rem);
             color: var(--gold);
-            letter-spacing: 15px;
-            margin: 0;
+            letter-spacing: 12px;
+            margin: 10px 0 0 0;
             text-transform: uppercase;
         }
 
         .tagline {
-            font-size: 0.9rem;
-            letter-spacing: 6px;
+            font-size: 0.85rem;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.6);
-            margin: 15px 0 40px 0;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 15px 0 45px 0;
         }
 
         .btn-assessment {
             display: inline-block;
-            padding: 18px 50px;
+            padding: 16px 45px;
             border: 1px solid var(--gold);
             background: transparent;
             color: var(--gold);
@@ -114,17 +120,10 @@
         .btn-assessment:hover {
             background-color: var(--gold);
             color: #000;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
 
-        /* Hint for the user */
-        .audio-hint {
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-            color: var(--gold);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            opacity: 0.6;
-        }
+        audio { display: none; }
     </style>
 </head>
 <body>
@@ -135,11 +134,10 @@
         </video>
 
         <div class="content-layer">
-            <div class="audio-hint">Hover to activate resonance</div>
-            
-            <div class="portrait-container" id="portrait" onmouseenter="playAudio()" onmouseleave="pauseAudio()">
+            <div class="portrait-container" id="portrait" onmouseenter="playVoice()" onmouseleave="stopVoice()">
                 <img src="assets/randy hensley.jpg" alt="Randy Hensley">
             </div>
+            <div class="audio-hint">Engage for Resonance</div>
 
             <h1>H-NOTE</h1>
             <div class="tagline">Strategy &bull; Counseling &bull; Architecture</div>
@@ -147,22 +145,21 @@
             <a href="request.html" class="btn-assessment">Request Assessment</a>
         </div>
 
-        <audio id="hnoteAudio">
-            <source src="assets/Dottie Randy.mp3" type="audio/mpeg">
+        <audio id="randyVoice">
+            <source src="assets/rando H_note.mp3" type="audio/mpeg">
         </audio>
     </section>
 
     <script>
-        const audio = document.getElementById('hnoteAudio');
+        const randyAudio = document.getElementById('randyVoice');
         
-        function playAudio() {
-            audio.play().catch(e => console.log("Audio needs user interaction first"));
+        function playVoice() {
+            randyAudio.currentTime = 0; // Starts from beginning each time they hover
+            randyAudio.play().catch(e => console.log("Interaction required"));
         }
 
-        function pauseAudio() {
-            audio.pause();
-            // Optional: reset to start when they move mouse away
-            // audio.currentTime = 0; 
+        function stopVoice() {
+            randyAudio.pause();
         }
     </script>
 
